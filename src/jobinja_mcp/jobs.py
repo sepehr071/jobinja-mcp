@@ -595,6 +595,7 @@ async def jj_salary_stats(
     Use for "what does a python developer earn" questions. Lists hide salaries, so this opens `sample` ads from the
     first page of results and summarises the stated minimums; most ads say negotiable, so check n_with_salary.
     A sample, not a survey: say so when reporting. The ads are returned so you can cite them with jj_job.
+    Makes one request per sampled ad, at most 30 (`sample`).
     """
     params = _search_params(keyword, province, category, remote, None, False, experience, None, "relevance", 1)
     _, html = await fetch("/jobs", params)
